@@ -1,8 +1,8 @@
-# IRPF e Docker: Executar o programa do DIRPF em Docker
+# IRPF e Docker: Executar o programa da DIRPF em Docker
 
 Permite executar o programa de Declaração do Imposto de Renda de Pessoa Física [(DIRPF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf), da Receita Federal do Governo Brasileiro, em um ambiente Docker.
 
-Minha intenção foi criar uma forma de executar o programa IRPF da RF usando Docker, também disponível em [ojmarcelino/IRPFeDocker](https://cloud.docker.com/u/ojmarcelino/repository/docker/ojmarcelino/IRPFeDocker). Baseado fortemente nos ~~devaneios cognitivos~~ fontes do colega [@aureliojargas](https://github.com/aureliojargas), cito:
+Minha intenção foi criar uma forma de executar o programa IRPF da RF usando Docker, também disponível em [ojmarcelino/IRPFeDocker](https://cloud.docker.com/u/ojmarcelino/repository/docker/ojmarcelino/irpf). Baseado fortemente nos ~~devaneios cognitivos~~ fontes do colega [@aureliojargas](https://github.com/aureliojargas), cito:
 
 > Instalar o Java? Não, obrigado.
 
@@ -20,7 +20,7 @@ Curto e grosso, como um leão o faria (_*direto na jugular*_), abra um terminal 
 | **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/ojmarcelino/IRPFeDocker/master/tools/runtime.sh)"`   |
 | **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/ojmarcelino/IRPFeDocker/master/tools/runtime.sh)"` |
 
-A imagem do IRPFeDocker está hospedada no [Docker Hub](https://hub.docker.com/r/ojmar/IRPFeDocker/), e para utilizar, basta executar o script '''runtime.sh'''. E só.
+A imagem do IRPFeDocker está hospedada no [Docker Hub](https://hub.docker.com/r/ojmarcelino/irpf), e para utilizar, basta executar o script `runtime.sh`. E só.
 
 ### docker-compose.yml
 
@@ -36,7 +36,7 @@ De longe o mais simples de usar, baixe este repositório e execute o [comando do
     chmod +x runtime.sh
     ./runtime.sh
 
-Caso precise rodar uma versão mais antiga do programa, informe o ano como argumento, com base na lista de versões disponíveis abaixo.
+Caso precise rodar uma versão mais antiga do programa, informe o ano como argumento, com base na lista de versões disponíveis abaixo, ou, se preferir, edite o `Dockerfile` e altere a URL para atender à sua necessidade do ano em específico.
 
 Links oficiais utilizados [Página oficial da Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf)
 
@@ -53,8 +53,6 @@ Links já apontando para as últimas versões disponibilizadas
 [2017](https://downloadirpf.receita.fazenda.gov.br/irpf/2017/irpf/arquivos/IRPF2017-1.4.zip)
 
 [2016](https://downloadirpf.receita.fazenda.gov.br/irpf/2016/IRPF2016-1.4.zip)
-
-    ./IRPFeDocker.sh 2018
 
 ## Como reconstruir a imagem
 
