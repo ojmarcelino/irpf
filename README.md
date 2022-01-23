@@ -14,9 +14,7 @@ Escolha seu método preferido, abra um terminal ou linha de comando, como usuár
 
 | Método    | Comando                                                                                           |
 |:----------|:--------------------------------------------------------------------------------------------------|
-| **aria2**  | `sh -c "$(aria2c https://raw.githubusercontent.com/ojmarcelino/irpf/master/runtime.sh)"` |
 | **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ojmarcelino/irpf/master/runtime.sh)"` |
-| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/ojmarcelino/irpf/master/tools/runtime.sh)"` |
 | **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/ojmarcelino/irpf/master/tools/runtime.sh)"`   |
 
 Consulte outras imagens disponíveis no [Docker Hub](https://hub.docker.com/r/ojmarcelino/irpf).
