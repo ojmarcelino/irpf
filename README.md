@@ -1,8 +1,6 @@
 # Execute o programa da DIRPF em Docker
 
-Permite executar o programa de Declaração do Imposto de Renda de Pessoa Física [(DIRPF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf) usando Docker.
-
-Minha intenção foi chegar em um comando de linha única para preencher a declaração de IRPF, com base nos ~~devaneios cognitivos~~ fontes do colega [@aureliojargas](https://github.com/aureliojargas), cito:
+Permite executar o programa de Declaração do Imposto de Renda de Pessoa Física [(DIRPF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf) usando Docker. Minha intenção foi chegar em um comando de linha única para preencher a declaração de IRPF, com base nos ~~devaneios cognitivos~~ fontes do colega [@aureliojargas](https://github.com/aureliojargas), cito:
 
 > Instalar o Java? Não, obrigado.
 
@@ -10,38 +8,32 @@ Claro, vários amigos já perguntaram, mas tem que rodar em Docker? Não, oras, 
 
 ## Como usar
 
-Escolha seu método preferido, abra um terminal ou linha de comando, como usuário comum (não root):
+De uma forma extremamente complexa, em uma linha de comando, como usuário comum (não root)[^1], conforme seu método preferido[^2]:
 
 | Método    | Comando                                                                                           |
 |:----------|:--------------------------------------------------------------------------------------------------|
 | **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ojmarcelino/irpf/master/runtime.sh)"` |
-| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/ojmarcelino/irpf/master/tools/runtime.sh)"`   |
+| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/ojmarcelino/irpf/master/runtime.sh)"`   |
 
-Consulte outras imagens disponíveis no [Docker Hub](https://hub.docker.com/r/ojmarcelino/irpf).
-
-### Inspeção manual
-
-É considerada uma boa prática uma inspeção de segurança na execução de scripts de projetos em repositórios que você não controla. Faça um clone do repositório em uma pasta local, ajuste os parâmetros dos arquivos como achar necessário, e depois de inspecionar o código, constatar que não não só não há nenhuma vulnerabilidade, como foram seguidas boas práticas de segurança para a criação deste repositório.
-
-Caso precise rodar uma versão mais antiga do programa, informe o ano como argumento, com base na lista de versões disponíveis abaixo, ou, se preferir, edite o `Dockerfile` e altere a URL para atender à sua necessidade do ano em específico.
-
-Se quiser ir direto na fonte, as imagens que estão no Docker já aparecem com as tags referentes aos últimos anos que a Receita Federal disponibiliza os programas.
-
-Para saber mais, acesse a [página oficial da Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf)
+Consulte imagens de anos anteriores disponíveis no <https://hub.docker.com/r/ojmarcelino/irpf>.
 
 ## Contribuições
 
-Toda ajuda é bem-vinda! Veja se você tem uma sugestão de melhoria, mande um PR ou e-mail (confira abaixo a política de segurança).
+Repetido! Mas valendo! Toda ajuda é bem-vinda! Mande um PR ou e-mail (confira abaixo a política de segurança).
 
 ## Política de segurança
 
-### Considerações gerais
+<font size="1">(ou... cara, como raios vou saber se esse treco é seguro?)
 
-(ou... cara, como raios vou saber se esse treco é seguro?)
+Parafraseando Pinóquio, no diálogo com o Encantado: _Não seria impreciso supor que eu não poderia, digamos, exatamente não dizer que esta é, ou não, uma versão parcialmente segura. Pelo contrário, eu estou, possivelmente, mais ou menos, até, não total e definitivamente rejeitando hipóteses de que exista algum tipo específico de problema que possa causar algum dano, ou ainda, que possa ou não vir a causar algum comportamento não totalmente passivo de ser imprevisível, sobre o que se deve conhecer, ou não, após exauridas todas as correlações e esgotadas todas as probabilidades reais ou imaginárias, sobre vulnerabilidades ou.... e, por fim, sobre todas as possíveis situações de segurança. Ou não, salvo melhor juízo[^3]._
 
-Parafraseando Pinóquio, no diálogo com o Encantado:
+### Inspeção manual
 
-Não seria impreciso supor que eu não poderia, digamos, exatamente não dizer que esta é, ou não, uma versão parcialmente segura. Pelo contrário, eu estou, possivelmente, mais ou menos, até, não total e definitivamente rejeitando hipóteses de que exista algum tipo específico de problema que possa causar algum dano, ou ainda, que possa ou não vir a causar algum comportamento não totalmente passivo de ser imprevisível, sobre o que se deve conhecer, ou não, após exauridas todas as correlações e esgotadas todas as probabilidades reais ou imaginárias, sobre vulnerabilidades ou.... e, por fim, sobre todas as possíveis situações de segurança. Ou não, salvo melhor juízo[^1].
+É considerada uma boa prática uma inspeção de segurança na execução de scripts de projetos em repositórios que você não controla. Faça um clone do repositório em uma pasta local, ajuste os parâmetros dos arquivos como achar necessário.
+
+Caso precise rodar uma versão mais antiga do programa, informe o ano como argumento da build, ou edite o `Dockerfile` com base no ano desejado.
+
+Para saber mais, acesse a [página oficial da Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf)
 
 ### Versões suportadas
 
@@ -63,4 +55,6 @@ Então considere enviar um email diretamente para: [**seguranca arroba jmarcelin
 
 Que nosso time de atendimento (no momento apenas Id, Ego e Superego na labuta) lidará com a sua solicitação.
 
-[^1]: Leia (ou não) o diálogo completo do Pinóquio com o Encantado neste link: <https://en.wikiquote.org/wiki/Shrek_the_Third#Dialogue>
+[^1]:  Sem delongas, executar qualquer programa, desnecessariamente, como root, é uma baita besteira, ou uma completa aplicação prática da lei de Murphy.
+[^2]:  A meu ver, curl e wget já está bom, certo? Se achar, realmente, que precisa colocar mais opções, abre um PR que será bem vindo
+[^3]: Leia (ou não) o diálogo completo do Pinóquio com o Encantado neste link: <https://en.wikiquote.org/wiki/Shrek_the_Third#Dialogue>
