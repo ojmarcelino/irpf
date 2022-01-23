@@ -1,78 +1,68 @@
-# IRPF e Docker: Executar o programa da DIRPF em Docker
+# Execute o programa da DIRPF em Docker
 
-Permite executar o programa de Declaração do Imposto de Renda de Pessoa Física [(DIRPF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf), da Receita Federal do Governo Brasileiro, em um ambiente Docker.
+Permite executar o programa de Declaração do Imposto de Renda de Pessoa Física [(DIRPF)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf) usando Docker.
 
-Minha intenção foi criar uma forma de executar o programa IRPF da RF usando Docker, também disponível em [ojmarcelino/IRPFeDocker](https://cloud.docker.com/u/ojmarcelino/repository/docker/ojmarcelino/irpf). Baseado fortemente nos ~~devaneios cognitivos~~ fontes do colega [@aureliojargas](https://github.com/aureliojargas), cito:
+Minha intenção foi chegar em um comando de linha única para preencher a declaração de IRPF, com base nos ~~devaneios cognitivos~~ fontes do colega [@aureliojargas](https://github.com/aureliojargas), cito:
 
 > Instalar o Java? Não, obrigado.
 
-Caso ainda não saiba o que é [IRPF](https://bfy.tw/SLFQ), clique [aqui](https://bfy.tw/SLFQ) para maiores informações.
+Claro, vários amigos já perguntaram, mas tem que rodar em Docker? Não, oras, pode instalar o Java e seus amiguinhos, e usar pelo método tradicional, claro. A opção aqui é para quem já usa algum o Docker e não quer ficar atualizando versão disso, daquilo, aí esse 'oneliner' abaixo é praticamente um 'caramba, porque não fiz isso antes'.
 
 ## Como usar
 
-### runtime.sh
-
-Curto e grosso, como um leão o faria (_*direto na jugular*_), abra um terminal ou linha de comando, e selecione uma opção
+Escolha seu método preferido, abra um terminal ou linha de comando, como usuário comum (não root):
 
 | Método    | Comando                                                                                           |
 |:----------|:--------------------------------------------------------------------------------------------------|
-| **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ojmarcelino/IRPFeDocker/master/runtime.sh)"` |
-| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/ojmarcelino/IRPFeDocker/master/tools/runtime.sh)"`   |
-| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/ojmarcelino/IRPFeDocker/master/tools/runtime.sh)"` |
+| **aria2**  | `sh -c "$(aria2 -fsSL https://raw.githubusercontent.com/ojmarcelino/irpf/master/runtime.sh)"` |
+| **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ojmarcelino/irpf/master/runtime.sh)"` |
+| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/ojmarcelino/irpf/master/tools/runtime.sh)"` |
+| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/ojmarcelino/irpf/master/tools/runtime.sh)"`   |
 
-A imagem do IRPFeDocker está hospedada no [Docker Hub](https://hub.docker.com/r/ojmarcelino/irpf), e para utilizar, basta executar o script `runtime.sh`. E só.
-
-### docker-compose.yml
-
-De longe o mais simples de usar, baixe este repositório e execute o [comando docker-compose up](https://docs.docker.com/compose/start/).
-
-`docker-compose up --build`
+Consulte outras imagens disponíveis no [Docker Hub](https://hub.docker.com/r/ojmarcelino/irpf).
 
 ### Inspeção manual
 
-É considerada uma boa prática uma inspeção de segurança na execução de scripts de projetos em repositórios que você não controla. Você pode baixar o script de execução primeiro, e depois de inspecionar o código, constatar que não não só não há nenhuma vulnerabilidade, como foram seguidas boas práticas de segurança para a criação deste repositório.
-
-    curl -L -o runtime.sh https://github.com/ojmarcelino/IRPFeDocker/raw/2019/runtime.sh
-    chmod +x runtime.sh
-    ./runtime.sh
+É considerada uma boa prática uma inspeção de segurança na execução de scripts de projetos em repositórios que você não controla. Faça um clone do repositório em uma pasta local, ajuste os parâmetros dos arquivos como achar necessário, e depois de inspecionar o código, constatar que não não só não há nenhuma vulnerabilidade, como foram seguidas boas práticas de segurança para a criação deste repositório.
 
 Caso precise rodar uma versão mais antiga do programa, informe o ano como argumento, com base na lista de versões disponíveis abaixo, ou, se preferir, edite o `Dockerfile` e altere a URL para atender à sua necessidade do ano em específico.
 
-Links oficiais utilizados [Página oficial da Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf)
+Se quiser ir direto na fonte, as imagens que estão no Docker já aparecem com as tags referentes aos últimos anos que a Receita Federal disponibiliza os programas.
 
-Links já apontando para as últimas versões disponibilizadas
-
-[2021](https://downloadirpf.receita.fazenda.gov.br/irpf/2021/irpf/arquivos/IRPF2021-1.9.zip)
-
-[2020](https://downloadirpf.receita.fazenda.gov.br/irpf/2020/irpf/arquivos/IRPF2020-2.2.zip)
-
-[2019](https://downloadirpf.receita.fazenda.gov.br/irpf/2019/irpf/arquivos/IRPF2019-1.7.zip)
-
-[2018](https://downloadirpf.receita.fazenda.gov.br/irpf/2018/irpf/arquivos/IRPF2018-1.7.zip)
-
-[2017](https://downloadirpf.receita.fazenda.gov.br/irpf/2017/irpf/arquivos/IRPF2017-1.4.zip)
-
-[2016](https://downloadirpf.receita.fazenda.gov.br/irpf/2016/IRPF2016-1.4.zip)
-
-## Como reconstruir a imagem
-
-Caso queira reconstruir a imagem em sua máquina, clone este repositório e faça o build local da imagem antes de rodá-la:
-
-    git clone https://github.com/ojmarcelino/IRPFeDocker.git
-    cd IRPFeDocker
-    ./build.sh
-    ./runtime.sh
-
-## Detalhes
-
-- Estou assumindo que você roda o docker sem precisar de `sudo`. Se não for o caso, bom, tem opção de rodar como root, que nem de longe é recomendado, ou procure a documentação para usar docker com usuário comum (não root).
-
-- Você sabe que os certificados desses sites do governo é uma novela, né? Por isso precisa da opção `--no-check-certificate` ao baixar o programa (vide `Dockerfile`) :(
-
-- Cada ano possui uma branch neste repositório (note que não tem a branch `master`). A cada commit novo, a imagem Docker é regerada automaticamente pelo Docker Hub, que já coloca a tag do ano, e no caso de ser a branch do ano corrente, também coloca a tag `latest`.
-
-- A cada ano novo que vira: crie a branch nova, atualize as regras de build automático no Docker Hub, atualize a URL do arquivo ZIP no Dockerfile.
+Para saber mais, acesse a [página oficial da Receita Federal](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/download/pgd/dirpf)
 
 ## Contribuições
 
-Sua ajuda é muito bem-vinda! Se virar o ano e eu não atualizar a imagem, ou se você tem uma sugestão de melhoria, mande seu Pull Request.
+Toda ajuda é bem-vinda! Veja se você tem uma sugestão de melhoria, mande um PR ou e-mail (confira abaixo a política de segurança).
+
+## Política de segurança
+
+### Considerações gerais
+
+(ou... cara, como raios vou saber se esse treco é seguro?)
+
+Parafraseando Pinóquio, no diálogo com o Encantado:
+
+Não seria impreciso supor que eu não poderia, digamos, exatamente não dizer que esta é, ou não, uma versão parcialmente segura. Pelo contrário, eu estou, possivelmente, mais ou menos, até, não total e definitivamente rejeitando hipóteses de que exista algum tipo específico de problema que possa causar algum dano, ou ainda, que possa ou não vir a causar algum comportamento não totalmente passivo de ser imprevisível, sobre o que se deve conhecer, ou não, após exauridas todas as correlações e esgotadas todas as probabilidades reais ou imaginárias, sobre vulnerabilidades ou.... e, por fim, sobre todas as possíveis situações de segurança. Ou não, salvo melhor juízo[^1].
+
+### Versões suportadas
+
+Neste momento, considere apenas a última versão como suportada.
+Os scripts são entregues "como estão", sem qualquer tipo de garantia.
+
+| Versão        | Suportada          |
+|:-------------- |:------------------ |
+| master         | :white_check_mark: |
+| other commits  | :x:                |
+
+### Encontrei um bug, e agora?
+
+**Não abra um PR nem issue!**
+
+Sim, isso exige um /facepalm enorme, pois a vulnerabilidade é exposta já de cara.
+
+Então considere enviar um email diretamente para: [**seguranca arroba jmarcelino ponto com ponto br**](mailto:seguranca@jmarcelino.com.br).
+
+Que nosso time de atendimento (no momento apenas Id, Ego e Superego na labuta) lidará com a sua solicitação.
+
+[^1]: Leia (ou não) o diálogo completo do Pinóquio com o Encantado neste link: <https://en.wikiquote.org/wiki/Shrek_the_Third#Dialogue>
