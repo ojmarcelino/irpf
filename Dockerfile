@@ -7,7 +7,10 @@ ENV JAVA_MINIMAL="/opt/java-minimal"
 RUN /usr/lib/jvm/java-11-openjdk/bin/jlink \
     --add-modules \
         java.base,java.sql,java.naming,java.desktop,java.management,java.security.jgss,java.instrument \
-    --compress 2 --strip-debug --no-header-files --no-man-pages \
+    --compress 2 \
+    --strip-debug \
+    --no-header-files \
+    --no-man-pages \
     --output "$JAVA_MINIMAL"
 
 FROM alpine
