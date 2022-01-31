@@ -17,10 +17,6 @@ De uma forma extremamente complexa, em uma linha de comando, como usuário comum
 
 Consulte imagens de anos anteriores disponíveis no <https://hub.docker.com/r/ojmarcelino/irpf>.
 
-## Contribuições
-
-Repetido! Mas valendo! Toda ajuda é bem-vinda! Mande um PR ou e-mail (confira abaixo a política de segurança).
-
 ## Política de segurança
 
 <font size="1">(ou... cara, como raios vou saber se esse treco é seguro?)
@@ -29,7 +25,7 @@ Parafraseando Pinóquio, no diálogo com o Encantado: _Não seria impreciso supo
 
 ### Inspeção manual
 
-É considerada uma boa prática uma inspeção de segurança na execução de scripts de projetos em repositórios que você não controla. Faça um clone do repositório em uma pasta local, ajuste os parâmetros dos arquivos como achar necessário.
+É considerada boa prática, uma inspeção de segurança na execução de scripts de projetos em repositórios que você não controla. Faça um clone do repositório em uma pasta local, ajuste os parâmetros dos arquivos como achar necessário.
 
 Caso precise rodar uma versão mais antiga do programa, informe o ano como argumento da build, ou edite o `Dockerfile` com base no ano desejado.
 
@@ -45,16 +41,18 @@ Os scripts são entregues "como estão", sem qualquer tipo de garantia.
 | master         | :white_check_mark: |
 | other commits  | :x:                |
 
+## Contribuições
+
+Toda ajuda é bem-vinda! Mande um PR ou e-mail (confira a política de segurança).
+
 ### Encontrei um bug, e agora?
 
 **Não abra um PR nem issue!**
 
-Sim, isso exige um /facepalm enorme, pois a vulnerabilidade é exposta já de cara.
+Sim, isso exige um /facepalm enorme, pois a vulnerabilidade é exposta já de cara. Envie suas anotações para: [**seguranca arroba jmarcelino ponto com ponto br**](mailto:seguranca@jmarcelino.com.br).
 
-Então considere enviar um email diretamente para: [**seguranca arroba jmarcelino ponto com ponto br**](mailto:seguranca@jmarcelino.com.br).
+Que nosso time de atendimento (no momento apenas Id, Ego e Superego na labuta) lidará com a sua solicitação. _This is the way_, como diria meu colega Mando.
 
-Que nosso time de atendimento (no momento apenas Id, Ego e Superego na labuta) lidará com a sua solicitação.
-
-[^1]:  Sem delongas, executar qualquer programa, desnecessariamente, como root, é uma baita besteira, ou uma completa aplicação prática da lei de Murphy.
-[^2]:  A meu ver, curl e wget já está bom, certo? Se achar, realmente, que precisa colocar mais opções, abre um PR que será bem vindo
+[^1]: Sem delongas, executar qualquer programa, desnecessariamente, como root, é uma completa aplicação prática da lei de Murphy.
+[^2]: A meu ver, curl e wget já está bom, certo? Se achar, realmente, que precisa colocar mais opções, abre um PR que será bem vindo
 [^3]: Leia (ou não) o diálogo completo do Pinóquio com o Encantado neste link: <https://en.wikiquote.org/wiki/Shrek_the_Third#Dialogue>
