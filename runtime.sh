@@ -8,7 +8,7 @@ docker run \
   --rm \
   -e DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -v ~/IRPF2021:/home/irpf/ProgramasRFB \
+  -v ~/ProgramasRFB:/home/irpf/ProgramasRFB \
   ojmarcelino/irpf
 
 xhost -local:docker
