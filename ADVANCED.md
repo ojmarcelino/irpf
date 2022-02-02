@@ -2,6 +2,9 @@
 
 ## Botando a mão na massa
 
+O conceito é simples até, a imagem em si é compilada em múltiplos estágios (multistage build), no primeiro estágio, só "força" o jlink a criar um runtime minimal e deixo ele ali, inerte até a execução da segundo estágio, que vai receber cópia apenas da pasta do "java minimal". Ambas as builds rodam sobre Alpine Linux o Java 11 (openjdk). Depois, para usar a parte GUI do DIRPF é só rodar com `xhost` o jar.
+
+
 ### Pré-requisitos
 
 - Um sistema operacional compatível com Docker: macOS, Linux, BSD. Em Windows: WSL2 roda melhor, mas cygwin, msys ou o próprio cliente Docker é suficiente.
