@@ -4,6 +4,8 @@ set -eu
 
 xhost +local:docker
 
+mkdir -p ~/ProgramasRFB
+
 docker run \
   --rm \
   -e DISPLAY \
