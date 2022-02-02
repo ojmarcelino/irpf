@@ -1,5 +1,5 @@
 #!/bin/sh
-# Run the latest version of IRPFeDocker.
+# Run the latest version of ojmarcelino/irpf.
 set -eu
 
 xhost +local:docker
