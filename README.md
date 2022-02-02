@@ -16,11 +16,15 @@ Para cada ano fiscal, há imagem com tag diferente. Consulte <https://hub.docker
 
 ## Exemplos de uso
 
-Em construção. Quer ajudar? Abre um PR!
+Em construção. Quer ajudar? Manda seu PR!
 
 ## Contribuições
 
-Consulte o guia [LICENSE.md](https://github.com/ojmarcelino/irpf/blob/main/CONTRIBUTING.md) para contribuir com o projeto, que contém instruções mais detalhadas.
+Consulte o guia [CONTRIBUTING.md](https://github.com/ojmarcelino/irpf/blob/main/CONTRIBUTING.md) para contribuir com o projeto, que contém instruções mais detalhadas.
+
+## Política de segurança
+
+Consulte [SECURITY.md](https://github.com/ojmarcelino/irpf/blob/main/SECURITY.md) para mais detalhes.
 
 ## Tópicos avançados
 
